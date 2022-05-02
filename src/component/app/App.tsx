@@ -1,14 +1,27 @@
 import * as React from 'react';
-// import {
-//   useState, useCallback,
-// } from 'react';
-// import { nanoid } from 'nanoid';
-import './app.scss';
+import { Route, BrowserRouter as Router, Routes } from
+  'react-router-dom';
 
-function App(): JSX.Element {
+import Menu from '../menu/Menu';
+import HomePage from '../homePage/HomePage';
+import DriftPage from '../driftPage/DriftPage';
+import TimeAttackPage from '../timeAttackPage/TimeAttackPage';
+import ForzaPage from '../forzaPage/ForzaPage';
+
+export default function App(): JSX.Element {
   return (
-    <h1>Привет</h1>
+    <Router>
+      <div>
+        <Menu />
+        <div className="page">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/drift" element={<DriftPage />} />
+            <Route path="/timeattack" element={<TimeAttackPage />} />
+            <Route path="/forza" element={<ForzaPage />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
-
-export default App;
